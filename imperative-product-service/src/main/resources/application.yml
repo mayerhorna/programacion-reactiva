@@ -8,5 +8,5 @@ spring:
       connection-timeout: 10000
       maximum-pool-size: 10
     password: postgres
-    url: jdbc:postgresql://localhost:5432/productos
+    url: jdbc:postgresql://localhost:5432/products
     username: postgres

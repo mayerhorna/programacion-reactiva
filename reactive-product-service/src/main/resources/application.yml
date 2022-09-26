@@ -5,7 +5,7 @@ spring:
     exclude: org.springframework.boot.autoconfigure.security.reactive.ReactiveSecurityAutoConfiguration
   r2dbc:
     password: postgres
-    url: r2dbc:postgresql://localhost:5432/productos
+    url: r2dbc:postgresql://localhost:5432/products
     username: postgres
     pool:
       max-size: 10
