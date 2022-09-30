@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function duplicarValor(x){
+			return x * 2;
+		}
+
+		function triplicarValor(x){
+			return x * 3;
+		}
+
+		function accionValoresDeLista(lista, accion){
+			if(lista.length == 1){
+				return [accion(lista[0])];
+			}else{
+				return [accion(lista[0])].concat(accionValoresDeLista(lista.slice(1), accion));
+			}
+		}
+
+		var miLista = [4,8,9];
+		console.log(miLista);
+		console.log("duplicar: " + accionValoresDeLista(miLista, duplicarValor));
+		console.log("triplicar: " + accionValoresDeLista(miLista, triplicarValor));
+		console.log("cuadruplicar: " + accionValoresDeLista(miLista, function(x){
+			return x * 4;
+		}));
+		console.log("quintuplicar: " + accionValoresDeLista(miLista, function(x){
+			return x * 5;
+		}));
+		console.log("sextuplicar: " + accionValoresDeLista(miLista, r => r * 6));
+	</script>
+</head>
+<body>
+
+</body>
+</html>

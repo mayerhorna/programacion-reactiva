@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		/*function duplicarValoresDeLista(lista){
+			var arrayDuplicados = [];
+			for(var i = 0; i < lista.length ; i++){
+				arrayDuplicados.push( lista[i] * 2 );
+			}
+			return arrayDuplicados;
+		}*/
+		function duplicarValoresDeLista(lista){
+			if(lista.length == 1){
+				return [lista[0]*2];
+			}else{
+				return [lista[0]*2].concat(duplicarValoresDeLista(lista.slice(1)));
+			}
+		}
+
+		var miLista = [4,8,9];
+		console.log(miLista);
+		console.log(duplicarValoresDeLista(miLista));
+	</script>
+</head>
+<body>
+
+</body>
+</html>
