@@ -2,6 +2,7 @@ package java11_pruebas.pruebas;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 interface AbstractDao<T>{
 	public T get(Long id) ;
@@ -54,5 +55,14 @@ public class GenericTest {
 		for (Object object : strings) {
 			
 		}
+		
+		
+		Consumer<String> s = System.out::println;
+	    Consumer<String> s2 = System.out::println;
+	    Consumer<String> s3 = System.out::println;
+	    Consumer<String> conmbined = s.andThen(s2).andThen(s3);
+	    conmbined.accept("a");
+	    
+	    
 	}
 }
