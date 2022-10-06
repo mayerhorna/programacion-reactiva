@@ -16,7 +16,7 @@ public class StreamsTest {
 		var list = List.of("a", "b", "c");
 		Stream<String> fromList = list.stream();
 		fromList.forEach(System.out::println);
-
+		 
 		//streams infinitos:
 		Stream<Double> randoms = Stream.generate(Math::random);
 		Stream<Integer> oddNumbers = Stream.iterate(1, n -> n + 2);
@@ -24,8 +24,8 @@ public class StreamsTest {
 				1,             // inicio
 				   			n -> n < 100,  // Predicate para especificar cuando termina
 				   			n -> n + 2);
-		//oddNumberUnder100.forEach(System.out::println);
-		
+		//oddNumbers.parallel().forEach(System.out::println);
+	 
 		
 		
 		var list2 = List.of("a", "b", "c");
@@ -58,7 +58,7 @@ public class StreamsTest {
 		});
 		System.out.println(length); // 5
 		
-		
+		/*
 		//collect:
 		Stream<String> stream3 = Stream.of("w", "o", "l", "f");
 		 
@@ -68,8 +68,7 @@ public class StreamsTest {
 	   	StringBuilder::append);
 	 
 		System.out.println(word); // wolf 
-
-
+		*/ 
 	}
 
 }
