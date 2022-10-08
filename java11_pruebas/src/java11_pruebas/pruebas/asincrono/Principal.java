@@ -25,12 +25,15 @@ public class Principal {
 			Repositorio repositorio = new Repositorio();
 			repositorio.guardar();
 		});
+		//hiloRepositorio2.setPriority(3);
 		hiloRepositorio2.start();
 		try {
-			Thread.sleep(2000);
+			hiloRepositorio.join();
+			hiloRepositorio2.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		
 		System.out.println("2");
 		System.out.println("hilo: " + Thread.currentThread().getName());
 	}
