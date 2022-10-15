@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Product {
+public class Product implements Cloneable{
 	private Long rowNum = 1L;
 	
     private Long tb_product_id;
@@ -16,7 +16,7 @@ public class Product {
 
     private String encriptedCode;
     
-    private BigDecimal salesPrice;
+    private BigDecimal salesPrice = BigDecimal.ZERO;
 
     private Integer isActive;
     
@@ -107,7 +107,15 @@ public class Product {
 	}
 	
 	public static List<Product> getData(){
-		return dummyData;
+		List<Product> copyData = new ArrayList<>();
+		try {
+			for (Product product : dummyData) {
+				copyData.add((Product)product.clone());
+			}
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return  copyData;
 	}
 
 	public Long getTb_product_id() {
