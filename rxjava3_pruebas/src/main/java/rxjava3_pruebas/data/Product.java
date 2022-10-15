@@ -184,6 +184,9 @@ public class Product implements Cloneable{
 	
 	@Override
 	public boolean equals(Object obj) {
+		if(this == obj) {
+			return true;
+		}
 		if(obj == null) {
 			return false;
 		}
@@ -191,6 +194,11 @@ public class Product implements Cloneable{
 			return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.tb_product_id.intValue();
 	}
 	
 	@Override
