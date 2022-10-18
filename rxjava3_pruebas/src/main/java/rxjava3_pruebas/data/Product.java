@@ -41,6 +41,13 @@ public class Product implements Cloneable{
 	static {
 		generateData();
 	}
+	
+
+	public Product(Long tb_product_id, String name) {
+		super();
+		this.tb_product_id = tb_product_id;
+		this.name = name;
+	}
 
 	public Product(Long tb_product_id, String code, String name, BigDecimal salesPrice, Integer isActive,
 			Date created, ProductType productType) {
@@ -81,7 +88,7 @@ public class Product implements Cloneable{
 		dummyData.add(new Product(15681L, "F015410","LIPFUNGOL 1% Crema x 20g",new BigDecimal(9.5), 1, new java.util.Date(), new ProductType(2L,"MUCOLÍTICOS")));
 		dummyData.add(new Product(6472L, "F006438","LISTERINE ENJ BUCAL WHITENING (BLANCO) x 236mL",new BigDecimal(12.5), 1, new java.util.Date(), new ProductType(2L,"MUCOLÍTICOS")));
 		dummyData.add(new Product(1889L, "F001855","DESO OLD SPICE MEN SPRAY BLOCKER x 150mL",new BigDecimal(12.5), 1, new java.util.Date(), new ProductType(3L,"ANTIPIRÉTICOS")));
-		dummyData.add(new Product(9719L, "F009685","DESO AXE SPRAY MUSK x 150mL",new BigDecimal(12.5), 1, new java.util.Date(), new ProductType(3L,"ANTIPIRÉTICOS")));
+		dummyData.add(new Product(9719L, "F009685","DESO AXE SPRAY MUSK x 150mL",null, 1, new java.util.Date(), new ProductType(3L,"ANTIPIRÉTICOS")));
 		dummyData.add(new Product(8885L, "F008851","ASPIRADOR NASAL ",new BigDecimal(13.00), 1, new java.util.Date(), new ProductType(3L,"ANTIPIRÉTICOS")));
 		dummyData.add(new Product(10680L, "F010409","PROPOL NF x 120mL ",new BigDecimal(14.00), 1, new java.util.Date(), new ProductType(3L,"ANTIPIRÉTICOS")));
 		dummyData.add(new Product(8850L, "F008816","LACTULOSA 3.3 g/5 mL Solución x 120mL",new BigDecimal(14.5), 1, new java.util.Date(), new ProductType(3L,"ANTIPIRÉTICOS")));
@@ -214,5 +221,11 @@ public class Product implements Cloneable{
 		this.productType = productType;
 	}
 	
+	public static Product find(Product productToSearch) {                    
+		return dummyData.stream()                                            
+				.filter(product -> product.equals(productToSearch))          
+				.findFirst()                                                 
+				.get();                                                      
+	}   
 	
 }
