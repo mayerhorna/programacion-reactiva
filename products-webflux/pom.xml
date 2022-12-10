@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>products</artifactId>
+	<artifactId>products-webflux</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>products</name>
 	<description>products</description>
